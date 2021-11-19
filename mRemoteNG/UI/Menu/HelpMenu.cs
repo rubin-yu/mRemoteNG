@@ -14,7 +14,7 @@ namespace mRemoteNG.UI.Menu
         private ToolStripMenuItem _mMenInfoWebsite;
         private ToolStripSeparator _mMenInfoSep1;
         private ToolStripMenuItem _mMenInfoAbout;
-        private ToolStripMenuItem _mMenInfoDonate;
+        //private ToolStripMenuItem _mMenInfoDonate;
         private ToolStripSeparator _mMenInfoSep2;
         private ToolStripSeparator _mMenInfoSep3;
         private ToolStripSeparator _mMenInfoSep4;
@@ -31,7 +31,7 @@ namespace mRemoteNG.UI.Menu
             _mMenInfoHelp = new ToolStripMenuItem();
             _mMenInfoSep1 = new ToolStripSeparator();
             _mMenInfoWebsite = new ToolStripMenuItem();
-            _mMenInfoDonate = new ToolStripMenuItem();
+            //_mMenInfoDonate = new ToolStripMenuItem();
             _mMenInfoForum = new ToolStripMenuItem();
             //_mMenToolsUpdate = new ToolStripMenuItem();
             _mMenInfoSep2 = new ToolStripSeparator();
@@ -48,10 +48,10 @@ namespace mRemoteNG.UI.Menu
                 _mMenInfoSep1,
                 _mMenInfoWebsite,
                 _mMenInfoForum,
-                _mMenInfoSep2,
+                //_mMenInfoSep2,
                 //_mMenToolsUpdate,
-                _mMenInfoSep3,
-                _mMenInfoDonate,
+                //_mMenInfoSep3,
+                //_mMenInfoDonate,
                 _mMenInfoSep4,
                 _mMenInfoAbout
             });
@@ -91,10 +91,10 @@ namespace mRemoteNG.UI.Menu
             // 
             // mMenInfoDonate
             // 
-            _mMenInfoDonate.Name = "mMenInfoDonate";
-            _mMenInfoDonate.Size = new System.Drawing.Size(190, 22);
-            _mMenInfoDonate.Text = Language.Donate;
-            _mMenInfoDonate.Click += mMenInfoDonate_Click;
+            //_mMenInfoDonate.Name = "mMenInfoDonate";
+            //_mMenInfoDonate.Size = new System.Drawing.Size(190, 22);
+            //_mMenInfoDonate.Text = Language.Donate;
+            //_mMenInfoDonate.Click += mMenInfoDonate_Click;
             // 
             // mMenInfoForum
             // 
@@ -132,7 +132,7 @@ namespace mRemoteNG.UI.Menu
             Text = Language._Help;
             _mMenInfoHelp.Text = Language.HelpContents;
             _mMenInfoWebsite.Text = Language.Website;
-            _mMenInfoDonate.Text = Language.Donate;
+            //_mMenInfoDonate.Text = Language.Donate;
             _mMenInfoForum.Text = Language.SupportForum;
             _mMenInfoAbout.Text = Language.About;
             //_mMenToolsUpdate.Text = Language.CheckForUpdates;
@@ -148,7 +148,7 @@ namespace mRemoteNG.UI.Menu
 
         private void mMenInfoWebsite_Click(object sender, EventArgs e) => Process.Start(GeneralAppInfo.UrlHome);
 
-        private void mMenInfoDonate_Click(object sender, EventArgs e) => Process.Start(GeneralAppInfo.UrlDonate);
+        //private void mMenInfoDonate_Click(object sender, EventArgs e) => Process.Start(GeneralAppInfo.UrlDonate);
 
         private void mMenInfoAbout_Click(object sender, EventArgs e) => FrmAbout.Instance.Show();
 
