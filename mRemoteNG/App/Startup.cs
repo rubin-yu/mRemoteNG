@@ -1,17 +1,14 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using mRemoteNG.App.Info;
 using mRemoteNG.App.Initialization;
-using mRemoteNG.App.Update;
 using mRemoteNG.Config.Connections.Multiuser;
 using mRemoteNG.Connection;
 using mRemoteNG.Messages;
 using mRemoteNG.Properties;
 using mRemoteNG.Tools;
 using mRemoteNG.Tools.Cmdline;
-using mRemoteNG.UI;
 using mRemoteNG.UI.Forms;
 
 
@@ -19,7 +16,6 @@ namespace mRemoteNG.App
 {
     public class Startup
     {
-        private AppUpdater _appUpdate;
         private readonly ConnectionIconLoader _connectionIconLoader;
         private readonly FrmMain _frmMain = FrmMain.Default;
 
@@ -27,7 +23,6 @@ namespace mRemoteNG.App
 
         private Startup()
         {
-            _appUpdate = new AppUpdater();
             _connectionIconLoader = new ConnectionIconLoader(GeneralAppInfo.HomePath + "\\Icons\\");
         }
 
@@ -65,63 +60,5 @@ namespace mRemoteNG.App
             Runtime.ConnectionsService.RemoteConnectionsSyncronizer.Enable();
         }
 
-        public void CheckForUpdate()
-        {
-            if (_appUpdate == null)
-            {
-                _appUpdate = new AppUpdater();
-            }
-            else if (_appUpdate.IsGetUpdateInfoRunning)
-            {
-                return;
-            }
-
-            var nextUpdateCheck =
-                Convert.ToDateTime(Settings.Default.CheckForUpdatesLastCheck.Add(
-                                                                                 TimeSpan
-                                                                                     .FromDays(Convert.ToDouble(Settings
-                                                                                                                .Default
-                                                                                                                .CheckForUpdatesFrequencyDays))));
-            if (!Settings.Default.UpdatePending && DateTime.UtcNow < nextUpdateCheck)
-            {
-                return;
-            }
-
-            _appUpdate.GetUpdateInfoCompletedEvent += GetUpdateInfoCompleted;
-            _appUpdate.GetUpdateInfoAsync();
-        }
-
-        private void GetUpdateInfoCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            if (_frmMain.InvokeRequired)
-            {
-                _frmMain.Invoke(new AsyncCompletedEventHandler(GetUpdateInfoCompleted), sender, e);
-                return;
-            }
-
-            try
-            {
-                _appUpdate.GetUpdateInfoCompletedEvent -= GetUpdateInfoCompleted;
-
-                if (e.Cancelled)
-                {
-                    return;
-                }
-
-                if (e.Error != null)
-                {
-                    throw e.Error;
-                }
-
-                if (_appUpdate.IsUpdateAvailable())
-                {
-                    Windows.Show(WindowType.Update);
-                }
-            }
-            catch (Exception ex)
-            {
-                Runtime.MessageCollector.AddExceptionMessage("GetUpdateInfoCompleted() failed.", ex);
-            }
-        }
     }
 }

@@ -64,15 +64,12 @@
     <Compile Include="App\Shutdown.cs" />
     <Compile Include="App\Startup.cs" />
     <Compile Include="App\SupportedCultures.cs" />
-    <Compile Include="App\Update\AppUpdater.cs" />
     <Compile Include="App\Export.cs" />
     <Compile Include="App\Import.cs" />
     <Compile Include="App\Info\ConnectionsFileInfo.cs" />
     <Compile Include="App\Info\CredentialsFileInfo.cs" />
     <Compile Include="App\Info\SettingsFileInfo.cs" />
     <Compile Include="App\Info\UpdateChannelInfo.cs" />
-    <Compile Include="App\Update\UpdateFile.cs" />
-    <Compile Include="App\Update\UpdateInfo.cs" />
     <Compile Include="App\Windows.cs" />
     <Compile Include="Config\Connections\ConnectionsBackupFrequencyEnum.cs" />
     <Compile Include="Config\Connections\ConnectionsLoadedEventArgs.cs" />
@@ -568,12 +565,6 @@
     <Compile Include="UI\Forms\OptionsPages\ThemePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Forms\OptionsPages\UpdatesPage.Designer.cs">
-      <DependentUpon>UpdatesPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\OptionsPages\UpdatesPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Tools\Authenticode.cs" />
     <Compile Include="Tools\EnumWindows.cs" />
     <Compile Include="Tools\PropertyGridCommandSite.cs" />
@@ -766,12 +757,6 @@
     <Compile Include="UI\Window\UltraVNCWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Window\UpdateWindow.Designer.cs">
-      <DependentUpon>UpdateWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Window\UpdateWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Language\Language.cs-CZ.resx">
@@ -914,9 +899,6 @@
     <EmbeddedResource Include="UI\Forms\OptionsPages\ThemePage.resx">
       <DependentUpon>ThemePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\OptionsPages\UpdatesPage.resx">
-      <DependentUpon>UpdatesPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\FrmPassword.resx">
       <DependentUpon>FrmPassword.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1031,10 +1013,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Window\UltraVNCWindow.resx">
       <DependentUpon>UltraVNCWindow.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Window\UpdateWindow.resx">
-      <DependentUpon>UpdateWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

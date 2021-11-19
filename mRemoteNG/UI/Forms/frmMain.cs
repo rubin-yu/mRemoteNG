@@ -341,51 +341,6 @@ namespace mRemoteNG.UI.Forms
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-            PromptForUpdatesPreference();
-            CheckForUpdates();
-        }
-
-        private void PromptForUpdatesPreference()
-        {
-            if (Settings.Default.CheckForUpdatesAsked) return;
-            string[] commandButtons =
-            {
-                Language.AskUpdatesCommandRecommended,
-                Language.AskUpdatesCommandCustom,
-                Language.AskUpdatesCommandAskLater
-            };
-
-            CTaskDialog.ShowTaskDialogBox(this, GeneralAppInfo.ProductName, Language.AskUpdatesMainInstruction,
-                                          string.Format(Language.AskUpdatesContent, GeneralAppInfo.ProductName),
-                                          "", "", "", "", string.Join(" | ", commandButtons), ETaskDialogButtons.None,
-                                          ESysIcons.Question,
-                                          ESysIcons.Question);
-
-            if (CTaskDialog.CommandButtonResult == 0 | CTaskDialog.CommandButtonResult == 1)
-            {
-                Settings.Default.CheckForUpdatesAsked = true;
-            }
-
-            if (CTaskDialog.CommandButtonResult != 1) return;
-
-            using (var optionsForm = new FrmOptions(Language.Updates))
-            {
-                optionsForm.ShowDialog(this);
-            }
-        }
-
-        private void CheckForUpdates()
-        {
-            if (!Settings.Default.CheckForUpdatesOnStartup) return;
-
-            var nextUpdateCheck =
-                Convert.ToDateTime(Settings.Default.CheckForUpdatesLastCheck.Add(TimeSpan.FromDays(Convert.ToDouble(Settings.Default.CheckForUpdatesFrequencyDays))));
-
-            if (!Settings.Default.UpdatePending && DateTime.UtcNow <= nextUpdateCheck) return;
-            if (!IsHandleCreated)
-                CreateHandle(); // Make sure the handle is created so that InvokeRequired returns the correct result
-
-            Startup.Instance.CheckForUpdate();
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

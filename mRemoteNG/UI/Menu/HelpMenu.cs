@@ -19,7 +19,7 @@ namespace mRemoteNG.UI.Menu
         private ToolStripSeparator _mMenInfoSep3;
         private ToolStripSeparator _mMenInfoSep4;
         private ToolStripMenuItem _mMenInfoForum;
-        private ToolStripMenuItem _mMenToolsUpdate;
+        //private ToolStripMenuItem _mMenToolsUpdate;
 
         public HelpMenu()
         {
@@ -33,7 +33,7 @@ namespace mRemoteNG.UI.Menu
             _mMenInfoWebsite = new ToolStripMenuItem();
             _mMenInfoDonate = new ToolStripMenuItem();
             _mMenInfoForum = new ToolStripMenuItem();
-            _mMenToolsUpdate = new ToolStripMenuItem();
+            //_mMenToolsUpdate = new ToolStripMenuItem();
             _mMenInfoSep2 = new ToolStripSeparator();
             _mMenInfoSep3 = new ToolStripSeparator();
             _mMenInfoSep4 = new ToolStripSeparator();
@@ -49,7 +49,7 @@ namespace mRemoteNG.UI.Menu
                 _mMenInfoWebsite,
                 _mMenInfoForum,
                 _mMenInfoSep2,
-                _mMenToolsUpdate,
+                //_mMenToolsUpdate,
                 _mMenInfoSep3,
                 _mMenInfoDonate,
                 _mMenInfoSep4,
@@ -71,11 +71,11 @@ namespace mRemoteNG.UI.Menu
             // 
             // mMenToolsUpdate
             // 
-            _mMenToolsUpdate.Image = Properties.Resources.RunUpdate_16x;
-            _mMenToolsUpdate.Name = "mMenToolsUpdate";
-            _mMenToolsUpdate.Size = new System.Drawing.Size(190, 22);
-            _mMenToolsUpdate.Text = Language.CheckForUpdates;
-            _mMenToolsUpdate.Click += mMenToolsUpdate_Click;
+            //_mMenToolsUpdate.Image = Properties.Resources.RunUpdate_16x;
+            //_mMenToolsUpdate.Name = "mMenToolsUpdate";
+            //_mMenToolsUpdate.Size = new System.Drawing.Size(190, 22);
+            //_mMenToolsUpdate.Text = Language.CheckForUpdates;
+            //_mMenToolsUpdate.Click += mMenToolsUpdate_Click;
             // 
             // mMenInfoSep1
             // 
@@ -135,12 +135,12 @@ namespace mRemoteNG.UI.Menu
             _mMenInfoDonate.Text = Language.Donate;
             _mMenInfoForum.Text = Language.SupportForum;
             _mMenInfoAbout.Text = Language.About;
-            _mMenToolsUpdate.Text = Language.CheckForUpdates;
+            //_mMenToolsUpdate.Text = Language.CheckForUpdates;
         }
 
         #region Info
 
-        private void mMenToolsUpdate_Click(object sender, EventArgs e) => Windows.Show(WindowType.Update);
+        //private void mMenToolsUpdate_Click(object sender, EventArgs e) => Windows.Show(WindowType.Update);
 
         private void mMenInfoHelp_Click(object sender, EventArgs e) => Process.Start(GeneralAppInfo.UrlDocumentation);
 

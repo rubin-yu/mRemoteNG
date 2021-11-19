@@ -21,7 +21,7 @@ namespace mRemoteNG.App
 
         internal static ConfigWindow ConfigForm { get; set; } = new ConfigWindow();
         internal static ErrorAndInfoWindow ErrorsForm { get; set; } = new ErrorAndInfoWindow();
-        private static UpdateWindow UpdateForm { get; set; } = new UpdateWindow();
+        //private static UpdateWindow UpdateForm { get; set; } = new UpdateWindow();
         internal static SSHTransferWindow SshtransferForm { get; private set; } = new SSHTransferWindow();
 
 
@@ -50,11 +50,11 @@ namespace mRemoteNG.App
                             SshtransferForm = new SSHTransferWindow();
                         SshtransferForm.Show(dockPanel);
                         break;
-                    case WindowType.Update:
-                        if (UpdateForm == null || UpdateForm.IsDisposed)
-                            UpdateForm = new UpdateWindow();
-                        UpdateForm.Show(dockPanel);
-                        break;
+                    //case WindowType.Update:
+                    //    if (UpdateForm == null || UpdateForm.IsDisposed)
+                    //        UpdateForm = new UpdateWindow();
+                    //    UpdateForm.Show(dockPanel);
+                    //    break;
                     case WindowType.ExternalApps:
                         if (_externalappsForm == null || _externalappsForm.IsDisposed)
                             _externalappsForm = new ExternalToolsWindow();
